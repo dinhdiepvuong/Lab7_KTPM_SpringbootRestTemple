@@ -20,4 +20,14 @@ public class StudentService {
 
         return Arrays.asList(response.getBody());
     }
+
+    public Student createStudent(Student student){
+        return restTemplate.postForObject(url + "/student", student, Student.class);
+    }
+
+    public String deleteStudent(String studentId){
+        restTemplate.delete(url + "/student/"+studentId+"", Student.class);
+
+        return "Delete student have id: " + studentId;
+    }
 }
