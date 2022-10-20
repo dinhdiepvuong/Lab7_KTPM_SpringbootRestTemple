@@ -28,7 +28,14 @@ public class RestStudentClient {
     @DeleteMapping("/student/{id}")
     public String deleteStudentById(@PathVariable("id") String studentId){
 
-        service.deleteStudent(studentId);
+        service.deleteStudentById(studentId);
         return "Delete student have id: " + studentId;
+    }
+
+    @PutMapping("/student")
+    public String updateStudent(@RequestBody Student student){
+        service.updateStudent(student);
+
+        return "Update successful";
     }
 }

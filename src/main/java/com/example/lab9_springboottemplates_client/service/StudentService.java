@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class StudentService {
 
+
     private RestTemplate restTemplate = new RestTemplate();
 
     private String url = "http://localhost:8080/api";
@@ -25,9 +26,17 @@ public class StudentService {
         return restTemplate.postForObject(url + "/student", student, Student.class);
     }
 
-    public String deleteStudent(String studentId){
+    public String deleteStudentById(String studentId){
         restTemplate.delete(url + "/student/"+studentId+"", Student.class);
 
         return "Delete student have id: " + studentId;
     }
+
+    public String updateStudent(Student student){
+       restTemplate.put(url + "/student", student, Student.class);
+
+       return "Update successful";
+    }
+
+
 }
