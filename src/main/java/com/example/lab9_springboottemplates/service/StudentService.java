@@ -20,6 +20,7 @@ public class StudentService {
         return repository.save(theStudent);
     }
 
+
     public List<Student> getAllStudent(){
         return repository.findAll();
     }

@@ -35,6 +35,7 @@ public class StudentController {
         return service.saveStudent(student);
     }
 
+
     @DeleteMapping("/student/{id}")
     public String deleteStudent(@PathVariable("id") String studentId){
 
